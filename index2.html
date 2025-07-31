@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DCB Barbers</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Unica+One&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Unica One', sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1px;
+    }
+
+    .gold {
+      color: #f4d03f;
+      background: linear-gradient(90deg, #f7ef8a, #d4af37, #f7ef8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s infinite linear;
+    }
+
+    .btn-gold {
+      background: linear-gradient(145deg, #d4af37, #a67c00);
+      color: #000;
+      font-weight: 700;
+      box-shadow: 0 0 10px #d4af37, 0 0 20px #a67c00 inset;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-gold:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #f7ef8a, 0 0 25px #f7ef8a inset;
+    }
+
+    .gold-border {
+      border: 2px solid #d4af37;
+      box-shadow: 0 0 10px #d4af37;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #d4af37, #fff9c4, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 6s infinite linear;
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -500px; }
+      100% { background-position: 500px; }
+    }
+
+    .metal-bg {
+      background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
+      box-shadow: inset 0 0 10px #111;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+
+  <!-- Hero -->
+  <section class="relative text-center py-16 animate__animated animate__fadeIn">
+    <div class="mb-6">
+      <img src="logo-dcb.png" alt="DCB Barbers Logo" class="mx-auto w-40 h-40 object-contain rounded-full gold-border" />
+    </div>
+    <h1 class="text-5xl font-extrabold gold mb-2 tracking-wide">DCB Barbers</h1>
+    <p class="text-gray-400 text-xl">Estilo. Precisión. Personalidad.</p>
+    <a href="https://booksy.com/es-es/88657_dcb-barbers_barberia_49475_granollers" target="_blank"
+       class="mt-6 inline-block px-8 py-3 rounded btn-gold text-lg transition duration-300 shadow-md">
+      Reserva tu cita
+    </a>
+
+    <!-- Redes sociales -->
+    <div class="flex justify-center space-x-6 mt-6">
+      <a href="https://instagram.com/dcbbarbers" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://tiktok.com/@dcbbarbers" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://facebook.com/dcbbarbers" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="py-14 metal-bg text-center animate__animated animate__fadeInUp">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto text-gray-200">
+      <div class="p-6 rounded-lg border border-yellow-700 shadow-lg bg-black">
+        <h3 class="text-xl gold font-semibold mb-2">Corte Clásico</h3>
+        <p>Fades, degradados y cortes con estilo moderno y clásico.</p>
+      </div>
+      <div class="p-6 rounded-lg border border-yellow-700 shadow-lg bg-black">
+        <h3 class="text-xl gold font-semibold mb-2">Barba Perfecta</h3>
+        <p>Perfilado, afeitado y tratamiento para barba impecable.</p>
+      </div>
+      <div class="p-6 rounded-lg border border-yellow-700 shadow-lg bg-black">
+        <h3 class="text-xl gold font-semibold mb-2">Pack Completo</h3>
+        <p>Transforma tu look con corte + barba + productos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="py-14 bg-black text-center">
+    <h2 class="section-title">Galería</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      <div class="bg-gray-800 h-48 rounded-lg shadow-inner"></div>
+      <div class="bg-gray-800 h-48 rounded-lg shadow-inner"></div>
+      <div class="bg-gray-800 h-48 rounded-lg shadow-inner"></div>
+      <div class="bg-gray-800 h-48 rounded-lg shadow-inner"></div>
+      <div class="bg-gray-800 h-48 rounded-lg shadow-inner"></div>
+      <div class="bg-gray-800 h-48 rounded-lg shadow-inner"></div>
+    </div>
+  </section>
+
+  <!-- Quiénes Somos -->
+<section class="py-14 metal-bg text-center animate__animated animate__fadeInUp">
+  <h2 class="section-title">Quiénes Somos</h2>
+  <div class="grid sm:grid-cols-3 gap-8 max-w-6xl mx-auto text-gray-300 px-4">
+    <!-- Persona 1 -->
+    <div class="bg-black p-6 rounded-xl border border-yellow-700 shadow-lg">
+      <img src="persona1.jpg" alt="Barbero 1" class="w-32 h-32 mx-auto rounded-full border-4 border-yellow-600 shadow-md mb-4 object-cover" />
+      <h3 class="text-xl gold font-semibold">Frank</h3>
+      <p class="text-sm text-gray-400 italic mb-2">Fundador & Master Barber</p>
+      <p class="text-sm">Con más de 5 años de experiencia, Frank lidera con estilo y técnica impecable.</p>
+    </div>
+    <!-- Persona 2 -->
+    <div class="bg-black p-6 rounded-xl border border-yellow-700 shadow-lg">
+      <img src="persona2.jpg" alt="Barbero 2" class="w-32 h-32 mx-auto rounded-full border-4 border-yellow-600 shadow-md mb-4 object-cover" />
+      <h3 class="text-xl gold font-semibold">Javi</h3>
+      <p class="text-sm text-gray-400 italic mb-2">Especialista en Fades</p>
+      <p class="text-sm">Perfeccionista del detalle, experto en cortes modernos y clásicos con estilo único.</p>
+    </div>
+    <!-- Persona 3 -->
+    <div class="bg-black p-6 rounded-xl border border-yellow-700 shadow-lg">
+      <img src="persona3.jpg" alt="Barbero 3" class="w-32 h-32 mx-auto rounded-full border-4 border-yellow-600 shadow-md mb-4 object-cover" />
+      <h3 class="text-xl gold font-semibold">Iker</h3>
+      <p class="text-sm text-gray-400 italic mb-2">Barbero & Especialista en Fades</p>
+      <p class="text-sm">Especialista en cortes modernos y clásicos, con un ojo preciso para el detalle y un estilo inconfundible.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimonios -->
+  <section class="py-14 metal-bg text-center animate__animated animate__fadeInUp">
+    <h2 class="section-title">Opiniones</h2>
+    <div class="max-w-4xl mx-auto grid gap-6 sm:grid-cols-2 text-left">
+      <div class="bg-black p-6 rounded-lg border border-yellow-700 shadow-md">
+        <p class="text-sm text-gray-300">“Me dejaron el mejor corte de mi vida. Repetiré sin duda.”</p>
+        <p class="gold font-semibold mt-2">— Alex G.</p>
+      </div>
+      <div class="bg-black p-6 rounded-lg border border-yellow-700 shadow-md">
+        <p class="text-sm text-gray-300">“Ambiente top y trato profesional. 10/10.”</p>
+        <p class="gold font-semibold mt-2">— Marta L.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="py-14 text-center">
+    <h2 class="section-title">Contacto</h2>
+    <p class="text-gray-300 mb-2">📍 Carrer d' Esteve Garrell, 08402 Granollers, Barcelona</p>
+    <p class="text-gray-400 mb-4">Síguenos en redes y reserva con Booksy</p>
+    <a href="https://booksy.com/es-es/88657_dcb-barbers_barberia_49475_granollers" class="btn-gold inline-block px-6 py-3 rounded font-semibold shadow-lg">
+      Reserva ahora
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 text-center py-6 text-sm text-gray-500">
+    <div class="flex justify-center space-x-6 mb-3">
+      <a href="https://www.instagram.com/dcb_barbers_/" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@dcb_barbersbyiker" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://facebook.com/dcbbarbers" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+    © 2025 DCB Barbers. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
