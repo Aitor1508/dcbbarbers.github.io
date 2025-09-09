@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DCB Barbers</title>
+  <link rel="icon" href="logo-dcb.png" type="image/png">
 
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -26,50 +27,66 @@
       letter-spacing: 1px;
     }
 
-    .gold {
-      color: #f4d03f;
-      background: linear-gradient(90deg, #f7ef8a, #d4af37, #f7ef8a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 5s infinite linear;
+    .gold, .section-title {
+      color: #c0c0c0; /* ahora solo color fijo */
+    }
+
+    @keyframes shineLoop {
+      0% { transform: translateX(-100%) rotate(25deg); opacity: 0; }
+      20% { opacity: 1; }
+      50% { transform: translateX(100%) rotate(25deg); opacity: 0; }
+      100% { opacity: 0; }
     }
 
     .btn-gold {
-      background: linear-gradient(145deg, #d4af37, #a67c00);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #b0b0b0, #7f7f7f);
       color: #000;
       font-weight: 700;
-      box-shadow: 0 0 10px #d4af37, 0 0 20px #a67c00 inset;
+      box-shadow: 0 0 10px #b0b0b0, 0 0 20px #7f7f7f inset;
       transition: all 0.3s ease-in-out;
+    }
+
+    .btn-gold::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.6) 50%, transparent 60%);
+      transform: rotate(25deg);
+      animation: shineLoop 8s infinite;
     }
 
     .btn-gold:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px #f7ef8a, 0 0 25px #f7ef8a inset;
+      box-shadow: 0 0 20px #dcdcdc, 0 0 25px #dcdcdc inset;
     }
 
     .gold-border {
-      border: 2px solid #d4af37;
-      box-shadow: 0 0 10px #d4af37;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #d4af37, #fff9c4, #d4af37);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 6s infinite linear;
-      margin-bottom: 1.5rem;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -500px; }
-      100% { background-position: 500px; }
+      border: 2px solid #c0c0c0;
+      box-shadow: 0 0 10px #c0c0c0;
     }
 
     .metal-bg {
       background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
-      box-shadow: inset 0 0 10px #111;
+      box-shadow: inset 0 0 15px #444, inset 0 0 30px #222;
+    }
+
+    /* Tarjetas metálicas */
+    .card-metal {
+      background: #111;
+      border: 2px solid #c0c0c0;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 15px rgba(192,192,192,0.5), inset 0 0 12px #555;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-metal:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(224,224,224,0.9), inset 0 0 15px #666;
     }
 
     /* Popup modal styles */
@@ -90,13 +107,13 @@
 
     .modal-content {
       background-color: #111;
-      border: 2px solid #d4af37;
+      border: 2px solid #c0c0c0;
       border-radius: 0.5rem;
       max-width: 600px;
       width: 100%;
       padding: 1.5rem 2rem;
       color: #ddd;
-      box-shadow: 0 0 15px #d4af37;
+      box-shadow: 0 0 20px #b0b0b0, inset 0 0 15px #666;
       animation: fadeInModal 0.3s ease forwards;
       position: relative;
       max-height: 80vh;
@@ -114,7 +131,7 @@
       right: 0.5rem;
       background: transparent;
       border: none;
-      color: #d4af37;
+      color: #c0c0c0;
       font-size: 1.5rem;
       cursor: pointer;
       font-weight: 700;
@@ -122,7 +139,7 @@
     }
 
     .modal-close-btn:hover {
-      color: #f7ef8a;
+      color: #e0e0e0;
     }
 
     .modal-content p, .modal-content a {
@@ -135,9 +152,37 @@
       text-decoration: underline;
       cursor: pointer;
     }
+
+    /* Corrección de bordes */
+    .border-yellow-700, .border-yellow-600 {
+      border-color: #c0c0c0 !important;
+    }
+
+    /* Marco del Google Maps */
+    .map-frame {
+      box-shadow: 0 0 20px rgba(192,192,192,0.9), inset 0 0 10px #555 !important;
+      border: 2px solid #c0c0c0 !important;
+    }
+
+    /* Iconos sociales metálicos */
+    .social-icon {
+      color: #a9a9a9;
+      transition: all 0.4s ease;
+      text-shadow: 0 0 5px #555;
+      position: relative;
+      display: inline-block;
+    }
+
+    .social-icon:hover {
+      color: #e0e0e0;
+      text-shadow: 0 0 10px #c0c0c0, 0 0 20px #fff;
+      transform: scale(1.1);
+    }
+
   </style>
 </head>
 
+<body class="font-sans">
 <body class="font-sans">
 
   <!-- Hero -->
@@ -154,31 +199,30 @@
 
     <!-- Redes sociales -->
     <div class="flex justify-center space-x-6 mt-6">
-      <a href="https://www.instagram.com/dcb_barbers_/" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+      <a href="https://www.instagram.com/dcb_barbers_/" target="_blank" class="social-icon text-2xl">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://www.tiktok.com/@dcb_barbersbyiker" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+      <a href="https://www.tiktok.com/@dcb_barbersbyiker" target="_blank" class="social-icon text-2xl">
         <i class="fab fa-tiktok"></i>
       </a>
-      <a href="https://facebook.com/dcbbarbers" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+      <a href="https://facebook.com/dcbbarbers" target="_blank" class="social-icon text-2xl">
         <i class="fab fa-facebook-f"></i>
       </a>
     </div>
   </section>
 
   <!-- Servicios -->
-  <section class="py-14 metal-bg text-center animate__animated animate__fadeInUp">
-    <h2 class="section-title">Nuestros Servicios</h2>
+  <section class="py-20 metal-bg text-center animate__animated animate__fadeInUp">
     <div class="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto text-gray-200">
-      <div class="p-6 rounded-lg border border-yellow-700 shadow-lg bg-black">
+      <div class="p-6 rounded-lg card-metal">
         <h3 class="text-xl gold font-semibold mb-2">Corte Clásico</h3>
         <p>Fades, degradados y cortes con estilo moderno y clásico.</p>
       </div>
-      <div class="p-6 rounded-lg border border-yellow-700 shadow-lg bg-black">
+      <div class="p-6 rounded-lg card-metal">
         <h3 class="text-xl gold font-semibold mb-2">Barba Perfecta</h3>
         <p>Perfilado, afeitado y tratamiento para barba impecable.</p>
       </div>
-      <div class="p-6 rounded-lg border border-yellow-700 shadow-lg bg-black">
+      <div class="p-6 rounded-lg card-metal">
         <h3 class="text-xl gold font-semibold mb-2">Pack Completo</h3>
         <p>Transforma tu look con corte + barba + productos.</p>
       </div>
@@ -188,33 +232,14 @@
   <!-- Galería -->
   <section class="py-14 bg-black px-4 max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8">
 
-    <!-- Video vertical tipo TikTok -->
+    <!-- Video -->
     <div style="flex: 1; max-width: 360px; background: black; aspect-ratio: 9 / 16; position: relative; border-radius: 12px; overflow: hidden;">
-      <video
-        src="videos/video1.mp4"
-        style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"
-        autoplay
-        loop
-        muted
-        playsinline
-        onclick="toggleMute(this)"
-        controlslist="nodownload nofullscreen noremoteplayback"
-        oncontextmenu="return false"
-      ></video>
+      <video src="videos/video1.mp4" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" autoplay loop muted playsinline onclick="toggleMute(this)" controlslist="nodownload nofullscreen noremoteplayback" oncontextmenu="return false"></video>
     </div>
 
     <!-- Mapa Google -->
-    <div style="flex: 1; min-width: 300px; height: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 0 15px rgba(212,175,55,0.7);">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.221062788228!2d2.287747015673538!3d41.61093617926401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c764ed04f139%3A0xb1b9a90bf0c32fb1!2sDCB%20Barbers!5e0!3m2!1ses!2ses!4v1690829099604!5m2!1ses!2ses"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Mapa DCB Barbers"
-      ></iframe>
+    <div class="map-frame" style="flex: 1; min-width: 300px; height: 480px; border-radius: 12px; overflow: hidden;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.221062788228!2d2.287747015673538!3d41.61093617926401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c764ed04f139%3A0xb1b9a90bf0c32fb1!2sDCB%20Barbers!5e0!3m2!1ses!2ses!4v1690829099604!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa DCB Barbers"></iframe>
     </div>
 
     <script>
@@ -226,25 +251,21 @@
 
   <!-- Quiénes Somos -->
   <section class="py-14 metal-bg text-center animate__animated animate__fadeInUp">
-    <h2 class="section-title">Quiénes Somos</h2>
     <div class="grid sm:grid-cols-3 gap-8 max-w-6xl mx-auto text-gray-300 px-4">
-      <!-- Persona 1 -->
-      <div class="bg-black p-6 rounded-xl border border-yellow-700 shadow-lg">
-        <img src="persona1.jpg" alt="Barbero 1" class="w-32 h-32 mx-auto rounded-full border-4 border-yellow-600 shadow-md mb-4 object-cover" />
+      <div class="card-metal p-6">
+        <img src="persona1.jpg" alt="Barbero 1" class="w-32 h-32 mx-auto rounded-full border-4 gold-border shadow-md mb-4 object-cover" />
         <h3 class="text-xl gold font-semibold">Frank</h3>
         <p class="text-sm text-gray-400 italic mb-2">Fundador & Master Barber</p>
         <p class="text-sm">Con más de 5 años de experiencia, Frank lidera con estilo y técnica impecable.</p>
       </div>
-      <!-- Persona 2 -->
-      <div class="bg-black p-6 rounded-xl border border-yellow-700 shadow-lg">
-        <img src="persona2.jpg" alt="Barbero 2" class="w-32 h-32 mx-auto rounded-full border-4 border-yellow-600 shadow-md mb-4 object-cover" />
+      <div class="card-metal p-6">
+        <img src="persona2.jpg" alt="Barbero 2" class="w-32 h-32 mx-auto rounded-full border-4 gold-border shadow-md mb-4 object-cover" />
         <h3 class="text-xl gold font-semibold">Javi</h3>
         <p class="text-sm text-gray-400 italic mb-2">Especialista en Fades</p>
         <p class="text-sm">Perfeccionista del detalle, experto en cortes modernos y clásicos con estilo único.</p>
       </div>
-      <!-- Persona 3 -->
-      <div class="bg-black p-6 rounded-xl border border-yellow-700 shadow-lg">
-        <img src="persona3.jpg" alt="Barbero 3" class="w-32 h-32 mx-auto rounded-full border-4 border-yellow-600 shadow-md mb-4 object-cover" />
+      <div class="card-metal p-6">
+        <img src="persona3.jpg" alt="Barbero 3" class="w-32 h-32 mx-auto rounded-full border-4 gold-border shadow-md mb-4 object-cover" />
         <h3 class="text-xl gold font-semibold">Iker</h3>
         <p class="text-sm text-gray-400 italic mb-2">Barbero & Especialista en Fades</p>
         <p class="text-sm">Especialista en cortes modernos y clásicos, con un ojo preciso para el detalle y un estilo inconfundible.</p>
@@ -254,13 +275,12 @@
 
   <!-- Testimonios -->
   <section class="py-14 metal-bg text-center animate__animated animate__fadeInUp">
-    <h2 class="section-title">Opiniones</h2>
     <div class="max-w-4xl mx-auto grid gap-6 sm:grid-cols-2 text-left">
-      <div class="bg-black p-6 rounded-lg border border-yellow-700 shadow-md">
+      <div class="card-metal p-6">
         <p class="text-sm text-gray-300">“Muy profesionales, la mejor peluqueria de todo el Valles Oriental”</p>
         <p class="gold font-semibold mt-2">— Raul P.</p>
       </div>
-      <div class="bg-black p-6 rounded-lg border border-yellow-700 shadow-md">
+      <div class="card-metal p-6">
         <p class="text-sm text-gray-300">“Los mejores sin duda, trato excelente ambiente agradable y muy profesionales.”</p>
         <p class="gold font-semibold mt-2">— Sergio L.</p>
       </div>
@@ -268,93 +288,76 @@
   </section>
 
   <!-- Contacto -->
- <section class="py-14 text-center">
-  <h2 class="section-title">Contacto</h2>
-  <p class="text-gray-300 mb-2">📍 Carrer d' Esteve Garrell, 08402 Granollers, Barcelona</p>
-  <p class="text-gray-300 mb-6">📞 <a href="tel:+34646148079" class="gold hover:underline">+34 646 14 80 79</a></p>
+  <section class="py-14 text-center">
+    <p class="text-gray-300 mb-2"> Carrer d' Esteve Garrell, 08402 Granollers, Barcelona</p>
+    <p class="text-gray-300 mb-6"> <a href="tel:+34646148079" class="gold hover:underline">+34 646 14 80 79</a></p>
 
-  <div class="flex justify-center gap-6">
-    <button
-      id="btnPrivacy"
-      class="btn-gold px-6 py-3 rounded font-semibold tracking-wide shadow-lg"
-      aria-haspopup="dialog"
-      aria-controls="modalPrivacy"
-    >Política de Privacidad</button>
-
-    <button
-      id="btnLegal"
-      class="btn-gold px-6 py-3 rounded font-semibold tracking-wide shadow-lg"
-      aria-haspopup="dialog"
-      aria-controls="modalLegal"
-    >Aviso Legal</button>
-  </div>
-</section>
-
-
-  <!-- Popup Modal Política de Privacidad -->
-  <div id="modalPrivacy" class="modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close-btn" aria-label="Cerrar Política de Privacidad">&times;</button>
-      <h3 id="privacyTitle" class="text-2xl gold font-bold mb-4">Política de Privacidad</h3>
-      <p>Tu privacidad es importante para nosotros. Recopilamos y usamos tus datos solo para mejorar tu experiencia con nuestros servicios y cumplir con la normativa vigente...</p>
-      <p>Para más información, visita <a href="#" class="gold underline">nuestra página de privacidad</a>.</p>
+    <div class="flex justify-center gap-6">
+      <button id="btnPrivacy" class="btn-gold px-6 py-3 rounded font-semibold tracking-wide shadow-lg" aria-haspopup="dialog" aria-controls="modalPrivacy">Política de Privacidad</button>
+      <button id="btnLegal" class="btn-gold px-6 py-3 rounded font-semibold tracking-wide shadow-lg" aria-haspopup="dialog" aria-controls="modalLegal">Aviso Legal</button>
     </div>
-  </div>
+  </section>
+  
+  
+<!-- Modal Política de Privacidad -->
+<div id="modalPrivacy" class="modal">
+<div class="modal-content">
+<button class="modal-close-btn" aria-label="Cerrar Política de Privacidad">&times;</button>
+<h3 class="text-2xl font-bold mb-4">Política de Privacidad</h3>
+<p>Tu privacidad es importante para nosotros. Recopilamos y usamos tus datos solo para mejorar tu experiencia con nuestros servicios y cumplir con la normativa vigente...</p>
+<p>Para más información, visita <a href="#" class="underline">nuestra página de privacidad</a>.</p>
+</div>
+</div>
 
-  <!-- Popup Modal Aviso Legal -->
-  <div id="modalLegal" class="modal" role="dialog" aria-modal="true" aria-labelledby="legalTitle" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close-btn" aria-label="Cerrar Aviso Legal">&times;</button>
-      <h3 id="legalTitle" class="text-2xl gold font-bold mb-4">Aviso Legal</h3>
-      <p>Este sitio web es propiedad de DCB Barbers y está destinado a proporcionar información sobre nuestros servicios. Cualquier uso indebido está prohibido...</p>
-      <p>Consulta nuestras condiciones completas en <a href="#" class="gold underline">términos y condiciones</a>.</p>
-    </div>
-  </div>
 
-  <script>
-    // Función para abrir modal
-    function openModal(modal) {
-      modal.style.display = 'flex';
-      modal.focus();
-    }
+<!-- Modal Aviso Legal -->
+<div id="modalLegal" class="modal">
+<div class="modal-content">
+<button class="modal-close-btn" aria-label="Cerrar Aviso Legal">&times;</button>
+<h3 class="text-2xl font-bold mb-4">Aviso Legal</h3>
+<p>Este sitio web es propiedad de DCB Barbers y está destinado a proporcionar información sobre nuestros servicios. Cualquier uso indebido está prohibido...</p>
+<p>Consulta nuestras condiciones completas en <a href="#" class="underline">términos y condiciones</a>.</p>
+</div>
+</div>
 
-    // Función para cerrar modal
-    function closeModal(modal) {
-      modal.style.display = 'none';
-    }
 
-    // Configurar botones y modales
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnPrivacy = document.getElementById('btnPrivacy');
-      const modalPrivacy = document.getElementById('modalPrivacy');
-      const btnLegal = document.getElementById('btnLegal');
-      const modalLegal = document.getElementById('modalLegal');
+<script>
+function openModal(modal) {
+modal.style.display = 'flex';
+}
 
-      // Abrir modales
-      btnPrivacy.addEventListener('click', () => openModal(modalPrivacy));
-      btnLegal.addEventListener('click', () => openModal(modalLegal));
 
-      // Cerrar modales al clicar en botón cerrar
-      modalPrivacy.querySelector('.modal-close-btn').addEventListener('click', () => closeModal(modalPrivacy));
-      modalLegal.querySelector('.modal-close-btn').addEventListener('click', () => closeModal(modalLegal));
+function closeModal(modal) {
+modal.style.display = 'none';
+}
 
-      // Cerrar modales al clicar fuera del contenido
-      modalPrivacy.addEventListener('click', (e) => {
-        if (e.target === modalPrivacy) closeModal(modalPrivacy);
-      });
-      modalLegal.addEventListener('click', (e) => {
-        if (e.target === modalLegal) closeModal(modalLegal);
-      });
 
-      // Opcional: cerrar con ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          if (modalPrivacy.style.display === 'flex') closeModal(modalPrivacy);
-          if (modalLegal.style.display === 'flex') closeModal(modalLegal);
-        }
-      });
-    });
-  </script>
+const btnPrivacy = document.getElementById('btnPrivacy');
+const modalPrivacy = document.getElementById('modalPrivacy');
+const btnLegal = document.getElementById('btnLegal');
+const modalLegal = document.getElementById('modalLegal');
+
+
+btnPrivacy.addEventListener('click', () => openModal(modalPrivacy));
+btnLegal.addEventListener('click', () => openModal(modalLegal));
+
+
+modalPrivacy.querySelector('.modal-close-btn').addEventListener('click', () => closeModal(modalPrivacy));
+modalLegal.querySelector('.modal-close-btn').addEventListener('click', () => closeModal(modalLegal));
+
+
+modalPrivacy.addEventListener('click', (e) => { if (e.target === modalPrivacy) closeModal(modalPrivacy); });
+modalLegal.addEventListener('click', (e) => { if (e.target === modalLegal) closeModal(modalLegal); });
+
+
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+closeModal(modalPrivacy);
+closeModal(modalLegal);
+}
+});
+</script>
+
 
 </body>
 </html>
